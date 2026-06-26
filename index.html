@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavanya Arumugam — Integration & API Developer</title>
+<meta name="description" content="Lavanya Arumugam — WSO2 Certified Integration Developer specializing in API Manager, Micro Integrator, and enterprise system integration.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:           #0A0E14;
+    --bg-raised:    #11161F;
+    --panel:        #141A24;
+    --line:         rgba(237,239,242,0.08);
+    --line-strong:  rgba(237,239,242,0.16);
+    --ink:          #EDEFF2;
+    --ink-dim:      #9AA4B2;
+    --ink-faint:    #5C6675;
+    --amber:        #FF8C42;
+    --amber-dim:    rgba(255,140,66,0.14);
+    --green:        #3DDC97;
+    --green-dim:    rgba(61,220,151,0.14);
+
+    --display: 'Space Grotesk', sans-serif;
+    --mono:    'IBM Plex Mono', monospace;
+    --body:    'Inter', sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+}
+
+a{ color:inherit; }
+
+::selection{ background:var(--amber-dim); color:var(--amber); }
+
+:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+    border-radius:2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+.wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+/* ============ BACKGROUND GRID ============ */
+.bg-grid{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background-image:
+        linear-gradient(rgba(237,239,242,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(237,239,242,0.025) 1px, transparent 1px);
+    background-size:48px 48px;
+    pointer-events:none;
+}
+
+/* ============ NAVBAR ============ */
+nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:1000;
+    background:rgba(10,14,20,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+    height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.nav-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:0.02em;
+    text-decoration:none;
+}
+
+.nav-brand .dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 3px var(--green-dim);
+    flex-shrink:0;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:32px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    font-size:13px;
+    font-family:var(--mono);
+    color:var(--ink-dim);
+    letter-spacing:0.02em;
+    transition:color 0.2s;
+    position:relative;
+}
+
+.nav-links a:hover{ color:var(--ink); }
+
+.nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+    width:38px; height:38px;
+    border-radius:6px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+@media(max-width:860px){
+    .nav-links{
+        position:fixed;
+        top:68px; left:0; right:0;
+        flex-direction:column;
+        background:var(--bg-raised);
+        padding:20px 28px;
+        gap:18px;
+        border-bottom:1px solid var(--line);
+        transform:translateY(-8px);
+        opacity:0;
+        pointer-events:none;
+        transition:0.2s;
+    }
+    .nav-links.open{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
+    }
+    .nav-toggle{ display:block; }
+}
+
+/* ============ HERO ============ */
+.hero{
+    position:relative;
+    z-index:1;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:140px 0 80px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:56px;
+    align-items:center;
+}
+
+@media(max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; gap:48px; }
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--amber);
+    background:var(--amber-dim);
+    border:1px solid rgba(255,140,66,0.25);
+    padding:6px 12px;
+    border-radius:4px;
+    margin-bottom:28px;
+}
+
+.hero h1{
+    font-family:var(--display);
+    font-size:54px;
+    font-weight:700;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+}
+
+.hero h1 .accent{ color:var(--amber); }
+
+.hero .role{
+    margin-top:18px;
+    font-family:var(--mono);
+    font-size:15px;
+    color:var(--ink-dim);
+    line-height:1.7;
+}
+
+.hero .role b{ color:var(--ink); font-weight:500; }
+
+.hero-actions{
+    margin-top:36px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    border-radius:6px;
+    font-family:var(--mono);
+    font-size:13.5px;
+    font-weight:500;
+    text-decoration:none;
+    transition:0.2s;
+    cursor:pointer;
+    border:1px solid transparent;
+}
+
+.btn-primary{
+    background:var(--amber);
+    color:#10110F;
+}
+.btn-primary:hover{
+    background:#FFA565;
+    transform:translateY(-1px);
+}
+
+.btn-ghost{
+    background:transparent;
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+}
+.btn-ghost:hover{
+    border-color:var(--ink-dim);
+    background:var(--panel);
+}
+
+/* ---- terminal / API trace panel ---- */
+.trace-panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);
+}
+
+.trace-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 16px;
+    border-bottom:1px solid var(--line);
+    background:rgba(255,255,255,0.015);
+}
+
+.trace-head .tdot{ width:10px; height:10px; border-radius:50%; }
+.trace-head .tdot:nth-child(1){ background:#FF6259; }
+.trace-head .tdot:nth-child(2){ background:#FFBD2E; }
+.trace-head .tdot:nth-child(3){ background:#28C840; }
+
+.trace-head span.label{
+    margin-left:8px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+}
+
+.trace-body{
+    padding:22px;
+    font-family:var(--mono);
+    font-size:13px;
+    line-height:1.85;
+    min-height:300px;
+}
+
+.trace-line{ white-space:pre-wrap; word-break:break-word; }
+.tc-method{ color:var(--green); font-weight:600; }
+.tc-path{ color:var(--ink); }
+.tc-comment{ color:var(--ink-faint); }
+.tc-key{ color:#7DB8FF; }
+.tc-string{ color:var(--amber); }
+.tc-punc{ color:var(--ink-faint); }
+.tc-status{ color:var(--green); font-weight:600; }
+
+.cursor-blink{
+    display:inline-block;
+    width:7px; height:15px;
+    background:var(--amber);
+    margin-left:2px;
+    vertical-align:middle;
+    animation:blink 1s steps(1) infinite;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+/* ============ SECTION STRUCTURE ============ */
+section{
+    position:relative;
+    z-index:1;
+    padding:110px 0;
+    border-top:1px solid var(--line);
+}
+
+.sec-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+    gap:16px;
+}
+
+.sec-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+}
+
+.sec-tag::before{
+    content:'';
+    width:18px; height:1px;
+    background:var(--amber);
+}
+
+.sec-head h2{
+    font-family:var(--display);
+    font-size:34px;
+    font-weight:600;
+    margin-top:10px;
+}
+
+.method-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:600;
+    padding:3px 8px;
+    border-radius:4px;
+    letter-spacing:0.03em;
+}
+.method-get{ background:rgba(125,184,255,0.14); color:#7DB8FF; }
+.method-post{ background:var(--green-dim); color:var(--green); }
+.method-put{ background:var(--amber-dim); color:var(--amber); }
+
+/* ============ ABOUT ============ */
+.about-layout{
+    display:grid;
+    grid-template-columns:1fr 280px;
+    gap:60px;
+}
+@media(max-width:860px){
+    .about-layout{ grid-template-columns:1fr; }
+}
+
+.about-layout p{
+    font-size:16.5px;
+    line-height:1.85;
+    color:var(--ink-dim);
+}
+.about-layout p + p{ margin-top:18px; }
+.about-layout strong{ color:var(--ink); font-weight:600; }
+
+.stat-rail{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border-left:1px solid var(--line);
+    padding-left:28px;
+}
+.stat-rail .stat{ padding:18px 0; border-bottom:1px solid var(--line); }
+.stat-rail .stat:last-child{ border-bottom:none; }
+.stat .num{
+    font-family:var(--display);
+    font-size:30px;
+    font-weight:700;
+    color:var(--amber);
+    line-height:1;
+}
+.stat .lbl{
+    margin-top:6px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+}
+
+/* ============ SKILLS ============ */
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+}
+@media(max-width:860px){
+    .skills-grid{ grid-template-columns:1fr; }
+}
+
+.skill-block{
+    background:var(--bg);
+    padding:30px;
+}
+
+.skill-block h3{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--amber);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.skill-block h3::before{ content:'›'; color:var(--ink-faint); }
+
+.skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.skill-tag{
+    padding:7px 13px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:5px;
+    font-size:13px;
+    font-family:var(--mono);
+    color:var(--ink-dim);
+    transition:0.2s;
+}
+.skill-tag:hover{
+    border-color:var(--amber);
+    color:var(--ink);
+}
+
+/* ============ PROJECTS / EXPERIENCE (log entries) ============ */
+.log{
+    border-left:1px solid var(--line);
+    margin-left:6px;
+}
+
+.log-entry{
+    position:relative;
+    padding:0 0 56px 36px;
+}
+.log-entry:last-child{ padding-bottom:0; }
+
+.log-entry::before{
+    content:'';
+    position:absolute;
+    left:-6px; top:4px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--amber);
+}
+
+.log-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+
+.log-meta .when{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+}
+
+.log-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px 30px;
+}
+
+.log-card h3{
+    font-family:var(--display);
+    font-size:21px;
+    font-weight:600;
+}
+
+.log-card .org{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink-dim);
+    margin-top:4px;
+}
+
+.log-card .summary{
+    margin-top:14px;
+    color:var(--ink-dim);
+    font-size:14.5px;
+    line-height:1.7;
+}
+
+.log-card ul{
+    margin-top:16px;
+    padding-left:0;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+.log-card ul li{
+    font-size:14px;
+    line-height:1.65;
+    color:var(--ink-dim);
+    padding-left:18px;
+    position:relative;
+}
+.log-card ul li::before{
+    content:'→';
+    position:absolute;
+    left:0;
+    color:var(--amber);
+    font-size:13px;
+}
+
+.stack-row{
+    margin-top:18px;
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+.stack-pill{
+    font-family:var(--mono);
+    font-size:11px;
+    padding:4px 10px;
+    border-radius:20px;
+    background:var(--bg-raised);
+    border:1px solid var(--line-strong);
+    color:var(--ink-faint);
+}
+
+/* ============ CERTIFICATIONS ============ */
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:16px;
+}
+@media(max-width:700px){
+    .cert-grid{ grid-template-columns:1fr; }
+}
+
+.cert-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:24px 26px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    transition:0.2s;
+}
+.cert-card:hover{
+    border-color:var(--line-strong);
+    background:var(--bg-raised);
+}
+
+.cert-card h3{
+    font-family:var(--display);
+    font-size:16.5px;
+    font-weight:600;
+    line-height:1.4;
+}
+
+.cert-card .issuer{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    margin-top:8px;
+}
+
+.status-pill{
+    flex-shrink:0;
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:600;
+    color:var(--green);
+    background:var(--green-dim);
+    border:1px solid rgba(61,220,151,0.3);
+    padding:4px 9px;
+    border-radius:4px;
+    white-space:nowrap;
+}
+
+.cert-card a.view-link{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    margin-top:14px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--amber);
+    text-decoration:none;
+}
+.cert-card a.view-link:hover{ text-decoration:underline; }
+
+.cert-card-inner{ display:flex; flex-direction:column; }
+
+/* ============ CONTACT ============ */
+.contact-panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:56px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+@media(max-width:700px){
+    .contact-panel{ padding:40px 24px; }
+}
+
+.contact-panel::before{
+    content:'';
+    position:absolute;
+    top:-100px; right:-100px;
+    width:280px; height:280px;
+    background:radial-gradient(circle, var(--amber-dim), transparent 70%);
+    pointer-events:none;
+}
+
+.contact-panel .sec-tag{ justify-content:center; margin-bottom:18px; }
+.contact-panel .sec-tag::before{ display:none; }
+
+.contact-panel h2{
+    font-family:var(--display);
+    font-size:36px;
+    font-weight:600;
+    margin-bottom:16px;
+}
+
+.contact-panel p.sub{
+    color:var(--ink-dim);
+    font-size:15.5px;
+    max-width:480px;
+    margin:0 auto 32px;
+    line-height:1.7;
+}
+
+.contact-methods{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.contact-method{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--bg-raised);
+    border:1px solid var(--line-strong);
+    padding:13px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:13.5px;
+    transition:0.2s;
+}
+.contact-method:hover{
+    border-color:var(--amber);
+    transform:translateY(-2px);
+}
+.contact-method .ico{
+    font-family:var(--mono);
+    color:var(--amber);
+}
+
+/* ============ FOOTER ============ */
+footer{
+    position:relative;
+    z-index:1;
+    border-top:1px solid var(--line);
+    padding:28px 0;
+}
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* ============ SCROLL REVEAL ============ */
+.reveal{
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:600px){
+    .hero h1{ font-size:38px; }
+    .sec-head h2{ font-size:26px; }
+    section{ padding:80px 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-brand"><span class="dot"></span>lavanya.arumugam</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">about</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#experience">experience</a></li>
+            <li><a href="#certifications">certs</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">≡</button>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+    <div class="wrap hero-grid">
+        <div>
+            <span class="eyebrow"><span style="width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;"></span>Open to new opportunities</span>
+            <h1>Building the<br>connective layer<br>between <span class="accent">systems.</span></h1>
+            <p class="role">
+                <b>Lavanya Arumugam</b> — WSO2 Certified Integration & API Developer<br>
+                2+ years designing REST/SOAP integrations for banking, education & government systems.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View Projects →</a>
+                <a href="resume.pdf" class="btn btn-ghost" download>Download Résumé</a>
+            </div>
+        </div>
+
+        <div class="trace-panel reveal">
+            <div class="trace-head">
+                <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+                <span class="label">api-manager · request trace</span>
+            </div>
+            <div class="trace-body" id="traceBody"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <span class="sec-tag">01 · profile</span>
+                <h2>About</h2>
+            </div>
+            <span class="method-tag method-get">GET /profile</span>
+        </div>
+
+        <div class="about-layout">
+            <div class="reveal">
+                <p>I'm a <strong>WSO2 Certified Middleware Developer</strong> with over two years of hands-on experience designing, building, and maintaining REST APIs and enterprise integration solutions across banking, government, and education sectors.</p>
+                <p>My work centers on <strong>WSO2 API Manager</strong> and <strong>Micro Integrator</strong> — building proxy services, sequences, and data services that let disconnected systems talk to each other reliably. I handle the full lifecycle: technical design, secure API development with OAuth2/JWT, deployment across Dev–UAT–Production, and the troubleshooting that keeps integrations stable under real-world load.</p>
+                <p>I care about clean message transformation, sensible throttling and versioning policies, and documentation that the next developer will actually thank me for.</p>
+            </div>
+            <div class="stat-rail reveal">
+                <div class="stat"><div class="num">2+</div><div class="lbl">YEARS IN INTEGRATION</div></div>
+                <div class="stat"><div class="num">3</div><div class="lbl">ENTERPRISE CLIENTS</div></div>
+                <div class="stat"><div class="num">6</div><div class="lbl">WSO2 CERTIFICATIONS</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <span class="sec-tag">02 · capabilities</span>
+                <h2>Technical Skills</h2>
+            </div>
+            <span class="method-tag method-get">GET /skills</span>
+        </div>
+
+        <div class="skills-grid reveal">
+            <div class="skill-block">
+                <h3>Integration & Middleware</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">WSO2 API Manager</span>
+                    <span class="skill-tag">WSO2 Micro Integrator</span>
+                    <span class="skill-tag">Apache Synapse</span>
+                    <span class="skill-tag">Axis2</span>
+                    <span class="skill-tag">REST & SOAP</span>
+                    <span class="skill-tag">Data Services</span>
+                </div>
+            </div>
+            <div class="skill-block">
+                <h3>Languages & Web</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">HTML / CSS</span>
+                    <span class="skill-tag">BeanShell</span>
+                </div>
+            </div>
+            <div class="skill-block">
+                <h3>Data & Security</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">MS SQL Server</span>
+                    <span class="skill-tag">OAuth2 / JWT</span>
+                    <span class="skill-tag">Mutual SSL</span>
+                    <span class="skill-tag">XML / JSON</span>
+                    <span class="skill-tag">API Throttling</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <span class="sec-tag">03 · case studies</span>
+                <h2>Projects</h2>
+            </div>
+            <span class="method-tag method-post">POST /projects/deploy</span>
+        </div>
+
+        <div class="log">
+            <div class="log-entry reveal">
+                <div class="log-meta"><span class="when">CLIENT · BANKING SECTOR</span></div>
+                <div class="log-card">
+                    <h3>UAB — United Arab Bank</h3>
+                    <div class="org">Enterprise Integration · WSO2 MI + APIM</div>
+                    <p class="summary">Designed and implemented secure, scalable API integrations connecting core banking systems, with full lifecycle ownership from build to production.</p>
+                    <ul>
+                        <li>Built and deployed APIs, Proxy Services, Sequences, Endpoints, and Data Services using WSO2 Micro Integrator</li>
+                        <li>Implemented XML/JSON message transformation, routing logic, and service orchestration for core banking flows</li>
+                        <li>Secured communications with OAuth2, JWT, and mutual SSL authentication</li>
+                        <li>Managed the full API lifecycle via APIM Publisher/Developer Portal — versioning, throttling, access control</li>
+                        <li>Deployed and monitored integration artifacts across Dev, UAT, and Production</li>
+                    </ul>
+                    <div class="stack-row">
+                        <span class="stack-pill">WSO2 MI</span>
+                        <span class="stack-pill">WSO2 APIM</span>
+                        <span class="stack-pill">OAuth2</span>
+                        <span class="stack-pill">JWT</span>
+                        <span class="stack-pill">Mutual SSL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="log-entry reveal">
+                <div class="log-meta"><span class="when">CLIENT · GOVERNMENT SECTOR</span></div>
+                <div class="log-card">
+                    <h3>NITA Uganda</h3>
+                    <div class="org">Enterprise System Integration · WSO2 MI + APIM</div>
+                    <p class="summary">Managed API deployments and integration design for national-level enterprise systems, connecting multiple backend services into a single coherent platform.</p>
+                    <ul>
+                        <li>Developed and deployed APIs, Proxy Services, Sequences, Endpoints, and Data Services</li>
+                        <li>Implemented message transformation, routing, and orchestration across multiple backend systems</li>
+                        <li>Secured APIs with OAuth2, JWT, and role-based access control</li>
+                        <li>Managed API lifecycle with versioning and throttling policies via APIM</li>
+                        <li>Authored developer-facing API documentation; monitored deployments across Dev, UAT, Production</li>
+                    </ul>
+                    <div class="stack-row">
+                        <span class="stack-pill">WSO2 MI</span>
+                        <span class="stack-pill">WSO2 APIM</span>
+                        <span class="stack-pill">RBAC</span>
+                        <span class="stack-pill">API Docs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="log-entry reveal">
+                <div class="log-meta"><span class="when">CLIENT · EDUCATION SECTOR</span></div>
+                <div class="log-card">
+                    <h3>MBZUAI — Mohamed bin Zayed University of AI</h3>
+                    <div class="org">Workflow Applications · WSO2 APIM + MI</div>
+                    <p class="summary">Built and supported enterprise workflow applications, keeping integration services stable across releases for an academic institution's operational systems.</p>
+                    <ul>
+                        <li>Developed enterprise workflow applications using WSO2 APIM, WSO2 MI, Java, REST APIs, XML, JSON, and Data Services</li>
+                        <li>Supported API testing, troubleshooting, and debugging to ensure stable integration services</li>
+                        <li>Handled API mediation, routing, and transformation across multiple systems</li>
+                        <li>Collaborated with development, QA, and infrastructure teams on releases and stability</li>
+                    </ul>
+                    <div class="stack-row">
+                        <span class="stack-pill">WSO2 APIM</span>
+                        <span class="stack-pill">Java</span>
+                        <span class="stack-pill">REST</span>
+                        <span class="stack-pill">XML/JSON</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <span class="sec-tag">04 · timeline</span>
+                <h2>Experience</h2>
+            </div>
+            <span class="method-tag method-get">GET /experience</span>
+        </div>
+
+        <div class="log">
+            <div class="log-entry reveal">
+                <div class="log-meta"><span class="when">DEC 2024 — PRESENT</span></div>
+                <div class="log-card">
+                    <h3>Trainee Graduate — WSO2 API Developer</h3>
+                    <div class="org">Impiger Technologies Pvt Ltd</div>
+                    <ul>
+                        <li>Developing REST APIs using WSO2 API Manager</li>
+                        <li>Implementing system integrations using WSO2 Micro Integrator</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="log-entry reveal">
+                <div class="log-meta"><span class="when">AUG 2024 — NOV 2024</span></div>
+                <div class="log-card">
+                    <h3>Trainee Graduate — Joget Developer</h3>
+                    <div class="org">Impiger Technologies Pvt Ltd</div>
+                    <ul>
+                        <li>Developed and customized low-code web applications using Joget to automate business workflows, forms, and task management</li>
+                        <li>Customized forms using BeanShell scripting</li>
+                        <li>Integrated MySQL databases into workflow applications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="log-entry reveal">
+                <div class="log-meta"><span class="when">INTERNSHIP</span></div>
+                <div class="log-card">
+                    <h3>Software Engineer Intern</h3>
+                    <div class="org">Virtual Maze</div>
+                    <ul>
+                        <li>Built responsive web interfaces using HTML, CSS, JavaScript, and React.js to improve user experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <span class="sec-tag">05 · verified</span>
+                <h2>Certifications</h2>
+            </div>
+            <span class="method-tag method-get">GET /certifications</span>
+        </div>
+
+        <div class="cert-grid">
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>WSO2 Certified API Manager Developer — V4</h3>
+                    <p class="issuer">WSO2 · Professional Certification</p>
+                    <a class="view-link" href="https://certification.wso2.com/certificate/CID-05051627/a09VM00000B5ZQDYA3" target="_blank" rel="noopener">View certificate →</a>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>WSO2 Certified API Manager Practitioner — V4</h3>
+                    <p class="issuer">WSO2 · Professional Certification</p>
+                    <a class="view-link" href="https://certification.wso2.com/certificate/CID-05051627/a09VM00000B5ZObYAN" target="_blank" rel="noopener">View certificate →</a>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>WSO2 Certified Micro Integrator Developer — V4</h3>
+                    <p class="issuer">WSO2 · Professional Certification</p>
+                    <a class="view-link" href="https://certification.wso2.com/certificate/CID-05051627/a09VM00000B1JiDYAV" target="_blank" rel="noopener">View certificate →</a>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>WSO2 Certified Micro Integrator Practitioner — V4</h3>
+                    <p class="issuer">WSO2 · Professional Certification</p>
+                    <a class="view-link" href="https://certification.wso2.com/certificate/CID-05051627/a09VM00000ArtmzYAB" target="_blank" rel="noopener">View certificate →</a>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>WSO2 Certified Identity Server Developer — V7</h3>
+                    <p class="issuer">WSO2 · Professional Certification</p>
+                    <a class="view-link" href="https://certification.wso2.com/certificate/CID-05051627/a09VM00000B5ZMzYAN" target="_blank" rel="noopener">View certificate →</a>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>WSO2 Certified Identity Server Practitioner — V7</h3>
+                    <p class="issuer">WSO2 · Professional Certification</p>
+                    <a class="view-link" href="https://certification.wso2.com/certificate/CID-05051627/a09VM00000B5ZLNYA3" target="_blank" rel="noopener">View certificate →</a>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>Python Foundation Certification</h3>
+                    <p class="issuer">Infosys Springboard</p>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-card-inner">
+                    <h3>HTML5 Certification</h3>
+                    <p class="issuer">Infosys Springboard</p>
+                </div>
+                <span class="status-pill">VERIFIED</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+    <div class="wrap">
+        <div class="contact-panel reveal">
+            <span class="sec-tag">06 · connect</span>
+            <h2>Let's integrate.</h2>
+            <p class="sub">Open to roles in API development and enterprise integration. The fastest way to reach me is email — I usually respond within a day.</p>
+            <div class="contact-methods">
+                <a class="contact-method" href="mailto:lavanya.arumugam.210@gmail.com"><span class="ico">@</span> lavanya.arumugam.210@gmail.com</a>
+                <a class="contact-method" href="tel:+919514312002"><span class="ico">#</span> +91 95143 12002</a>
+                <a class="contact-method" href="#"><span class="ico">⌖</span> Coimbatore, India</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap footer-inner">
+        <span>© 2026 Lavanya Arumugam</span>
+        <span>status: <span style="color:var(--green);">200 OK</span> — currently open to work</span>
+    </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+}));
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduceMotion){
+    revealEls.forEach(el => el.classList.add('in'));
+} else {
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('in');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+}
+
+// Typed API trace in hero panel
+const traceBody = document.getElementById('traceBody');
+
+const traceScript = [
+  { t: 'line', html: '<span class="tc-method">GET</span> <span class="tc-path">/v1/developers/lavanya-arumugam</span>' },
+  { t: 'line', html: '<span class="tc-comment">Host:</span> api.career.dev' },
+  { t: 'line', html: '<span class="tc-comment">Accept:</span> application/json' },
+  { t: 'blank' },
+  { t: 'line', html: '<span class="tc-status">200 OK</span> <span class="tc-comment">· 42ms</span>' },
+  { t: 'line', html: '<span class="tc-punc">{</span>' },
+  { t: 'line', html: '&nbsp;&nbsp;<span class="tc-key">"name"</span><span class="tc-punc">:</span> <span class="tc-string">"Lavanya Arumugam"</span><span class="tc-punc">,</span>' },
+  { t: 'line', html: '&nbsp;&nbsp;<span class="tc-key">"role"</span><span class="tc-punc">:</span> <span class="tc-string">"Integration & API Developer"</span><span class="tc-punc">,</span>' },
+  { t: 'line', html: '&nbsp;&nbsp;<span class="tc-key">"stack"</span><span class="tc-punc">:</span> <span class="tc-punc">[</span><span class="tc-string">"WSO2 APIM"</span><span class="tc-punc">,</span> <span class="tc-string">"WSO2 MI"</span><span class="tc-punc">,</span> <span class="tc-string">"Java"</span><span class="tc-punc">],</span>' },
+  { t: 'line', html: '&nbsp;&nbsp;<span class="tc-key">"experience_years"</span><span class="tc-punc">:</span> <span class="tc-string">2</span><span class="tc-punc">,</span>' },
+  { t: 'line', html: '&nbsp;&nbsp;<span class="tc-key">"certifications"</span><span class="tc-punc">:</span> <span class="tc-string">6</span><span class="tc-punc">,</span>' },
+  { t: 'line', html: '&nbsp;&nbsp;<span class="tc-key">"available"</span><span class="tc-punc">:</span> <span class="tc-string">true</span>' },
+  { t: 'line', html: '<span class="tc-punc">}</span>' },
+];
+
+let lineIndex = 0;
+
+function typeLine(html, container, done){
+    const div = document.createElement('div');
+    div.className = 'trace-line';
+    container.appendChild(div);
+
+    // Type out the plain text content character by character, then swap in
+    // the fully-styled HTML once typing completes.
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    const text = temp.textContent;
+    let charI = 0;
+
+    function typeChar(){
+        if(charI <= text.length){
+            div.textContent = text.slice(0, charI);
+            charI++;
+            setTimeout(typeChar, 8 + Math.random()*10);
+        } else {
+            div.innerHTML = html;
+            done();
+        }
+    }
+    typeChar();
+}
+
+function runTrace(){
+    if(lineIndex >= traceScript.length){
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor-blink';
+        traceBody.appendChild(cursor);
+        return;
+    }
+    const item = traceScript[lineIndex];
+    if(item.t === 'blank'){
+        const div = document.createElement('div');
+        div.style.height = '10px';
+        traceBody.appendChild(div);
+        lineIndex++;
+        setTimeout(runTrace, 120);
+        return;
+    }
+    typeLine(item.html, traceBody, () => {
+        lineIndex++;
+        setTimeout(runTrace, item.html.includes('200 OK') ? 260 : 55);
+    });
+}
+
+if(reduceMotion){
+    traceBody.innerHTML = traceScript.map(i => i.t === 'blank' ? '<div style="height:10px"></div>' : '<div class="trace-line">'+i.html+'</div>').join('');
+} else {
+    // Start typing once panel is in view
+    const heroIO = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                runTrace();
+                heroIO.disconnect();
+            }
+        });
+    }, { threshold: 0.2 });
+    heroIO.observe(traceBody);
+}
+</script>
+
+</body>
+</html>
